@@ -1,0 +1,60 @@
+<h1 class="text">Welcome to Myrator</h1>
+
+<div style="margin-top: 20px; background-color: #F0F8FF; padding: 10px; border-radius: 7px;">
+    <div class="row justify-content-between">
+        <h3 class="col-3 text" style="margin-left: 20px;" ><b>精選公司</b></h3>
+        <%= link_to "更多公司", companies_path, class: "col-1 btn btn-outline-primary", :style => "margin-right: 20px;" %>
+    </div>
+    <div class="row justify-content-around" style="margin-top: 20px;">
+        <% @companies.each do |company| %>
+            <%= link_to company, class: "col-2 big_button" do %>
+                <%= company.name %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+<div style="margin-top: 20px; background-color: #F0F8FF; padding: 10px; border-radius: 7px;">
+    <div class="row justify-content-between">
+        <h3 class="col-3 text" style="margin-left: 20px;"><b>精選職缺</b></h3>
+        <%= link_to "更多職缺", jobs_path, class: "col-1 btn btn-outline-primary", :style => "margin-right: 20px;" %>
+    </div>
+    <div class="row justify-content-around" style="margin-top: 20px;">
+        <% @jobs.limit(5).each do |job| %>
+            <%= link_to job, class: "col-2 big_button" do %>
+                <%= job.name %>
+            <% end %>
+        <% end %>
+    </div><br>
+    <div class="row justify-content-around">
+    <% @jobs.limit(5).offset(5).each do |job| %>
+        <%= link_to job, class: "col-2 big_button" do %>
+            <%= job.name %>
+        <% end %>
+    <% end %>
+    </div>
+</div>
+
+
+<style>
+    .text {
+        color: #073055;
+    }
+    .big_button {
+        text-align: center;
+        border-radius: 10px;
+        border-color: #309EFF;
+        background-color: #AFD9FF;
+        color: #309EFF;
+        padding: 40px; 
+        font-size: 20px;
+        text-decoration: none;
+        transition-timing-function: ease-out;
+        -webkit-transition-property: background-color, color;
+        -webkit-transition-duration: 0.4s;
+    }
+    .big_button:hover {
+        background-color: #70BCFF;
+        border-color: #309EFF;
+    }
+</style>

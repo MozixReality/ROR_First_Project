@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><strong><%= @company.name %></strong></h1>
+</p>
+<div style="margin-left: 30px;">
+  <p>
+    <h3><strong>公司介紹</strong></h3>
+    <h5 style="color: gray;"><%= @company.intro %></h5>
+  </p>
+
+  <p>
+   <h3><strong>公司理念</strong></h3>
+    <h5 style="color: gray;"><%= @company.idea %></h5>
+  </p>
+
+  <p>
+    <h3><strong>媒體報導</strong></h3>
+    <h5 style="color: gray;"><%= @company.press %></h5>
+  </p>
+
+  <p>
+    <h3><strong>薪資福利</strong></h3>
+    <h5 style="color: gray;"><%= @company.walfare %></h5>
+  </p>
+
+  <p>
+    <h3><strong>目前職缺</strong></h3>
+    <div class="list-group">
+      <% @jobs.each do |job| %>
+      <%= link_to job.name, job, class: "list-group-item list-group-item-action" %>
+    <% end %>
+  </p>
+</div>
+</div>
+<!--
+<%= link_to 'Edit', edit_company_path(@company) %> -->
+<%= link_to 'Back', companies_path %>

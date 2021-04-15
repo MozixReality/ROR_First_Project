@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><strong><%= @job.name %></strong></h1>
+</p>
+
+<div style="margin-left: 30px;">
+  <p>
+    <h3><strong>工作內容</strong></h3>
+    <h5 style="color: gray;"><%= @job.detail %></h5>
+  </p>
+
+  <p>
+    <h3><strong>條件要求</strong></h3>
+    <h5 style="color: gray;"><%= @job.requirement %></h5>
+  </p>
+
+  <p>
+    <h3><strong>公司福利</strong></h3>
+    <h5 style="color: gray;"><%= @job.walfare %></h5>
+  </p>
+
+  <p>
+    <h3><strong>薪資範圍</strong></h3>
+    <h5 style="color: gray;"><%= @job.pay %></h5>
+  </p>
+
+  <!--<p>
+    <strong>Open:</strong>
+    <%= @job.open %>
+  </p>-->
+
+  <p>
+    <h3><strong>公司</strong></h3>
+    <h5 style="color: gray;"><%= @job.company.name %></h5>
+  </p>
+</div>
+
+<!-- <%= link_to 'Edit', edit_job_path(@job) %> 
+<%= link_to 'Back', jobs_path %> -->
+<br>
+<div class="d-flex justify-content-center" style="margin-top: 150px;">
+  <button type="button" class="btn btn-primary btn-lg btn-block" style="padding: 10px 30px; border-radius: 7px;">現在應徵</button>
+</div>

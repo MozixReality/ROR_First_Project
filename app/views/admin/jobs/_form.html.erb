@@ -1,0 +1,52 @@
+<%= form_with(model: job) do |form| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+        <% job.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field" style="margin-top: 30px;">
+  <h4><%= form.label "職缺名稱" %></h4>
+    <%= form.text_field :name, class: "form-control", placeholder: "Full Stack Engineer" %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+  <h4><%= form.label "工作內容" %></h4>
+    <%= form.text_area :detail, class: "form-control", placeholder: "Work Days, Details ..." %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+  <h4><%= form.label "條件要求" %></h4>
+    <%= form.text_area :requirement, class: "form-control", placeholder: "Skill, Characteristic ..." %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+  <h4><%= form.label "公司福利" %></h4>
+    <%= form.text_area :walfare, class: "form-control", placeholder: "Drinks, Cookies ..." %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+  <h4><%= form.label "薪資範圍" %></h4>
+    <%= form.text_field :pay, class: "form-control", placeholder: "70,000 NTD/M"  %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+  <h4><%= form.label "是否開放" %></h4>
+    <%= form.check_box :open, class: "form-check-input" %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+    <h4><%= form.label "所屬公司" %></h4>
+    <%= form.select :company_id, options_for_select(@companies.collect{ |company| [company.name, company.id] }, job.company_id), {}, {:class => 'form-control'} %>
+  </div>
+  
+  <div class="actions d-flex justify-content-center" style="margin-top: 100px; margin-bottom: 100px;">
+    <%= form.submit class: 'btn btn-outline-dark'%>
+  </div>
+<% end %>

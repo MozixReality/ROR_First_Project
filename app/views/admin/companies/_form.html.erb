@@ -1,0 +1,42 @@
+<%= form_with(model: company) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style="margin-top: 30px;">
+    <h4><%= form.label "公司名稱" %></h4>
+    <%= form.text_field :name, class: "form-control", placeholder: "Yourator" %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+    <h4><%= form.label "公司介紹" %></h4>
+    <%= form.text_area :intro, class: "form-control", placeholder: "Our Team is focus on ..." %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+    <h4><%= form.label "公司理念" %></h4>
+    <%= form.text_area :idea, class: "form-control", placeholder: "We are contribute to ..." %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+    <h4><%= form.label "媒體報導" %></h4>
+    <%= form.text_area :press, class: "form-control", placeholder: "According to ..." %>
+  </div>
+
+  <div class="field" style="margin-top: 30px;">
+    <h4><%= form.label "薪資福利" %></h4>
+    <%= form.text_field :walfare, class: "form-control", placeholder: "Drinks, Cookies ..." %>
+  </div>
+
+  <div class="actions d-flex justify-content-center" style="margin-top: 100px; margin-bottom: 100px;">
+    <%= form.submit class: 'btn btn-outline-dark'%>
+  </div>
+<% end %>
