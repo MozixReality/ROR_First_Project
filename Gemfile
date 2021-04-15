@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
-gem 'pg', '~> 0.18.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 # Use Puma as the app server
@@ -43,8 +42,14 @@ group :development do
   gem 'spring'
 end
 
+group :development do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.4'
+end
+
 group :production do
   gem 'pg', '~> 0.18.4'
+  gem 'rails_12factor'
 end
 
 group :test do
